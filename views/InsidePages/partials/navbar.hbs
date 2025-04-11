@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <!-- Google Fonts for Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles (for context, though not needed in partial) */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #1a1a1a;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Navbar left (logo and company name) */
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            margin-top: -30px;
+            margin-bottom: -40px;
+            width: 150px;
+            height: auto;
+        }
+
+        .company-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Navbar center (navigation links) */
+        .navbar-center {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .navbar-center a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .navbar-center a:hover {
+            color: #e6e6e6;
+            transform: translateY(-2px);
+            display: inline-block;
+        }
+
+        /* Navbar right (Sign Up and Login buttons) */
+        .navbar-right {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 8px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #e6e6e6;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            transform: scale(1.05);
+        }
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .navbar-center {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .navbar-right {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .company-name {
+                font-size: 1.5rem;
+            }
+
+            .logo img {
+                width: 50px;
+            }
+
+            .navbar-center a {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .company-name {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <!-- Left: Logo and Company Name -->
+        <div class="navbar-left">
+            <div class="logo">
+                <img src="logoW.png" alt="Skill share logo">
+            </div>
+
+        </div>
+
+        <!-- Center: Navigation Links -->
+        <div class="navbar-center">
+            <a href="/home">Home</a>
+            <a href="/allCourses">Courses</a>
+            <a href="/allTeachers">Teachers</a>
+            <a href="/aboutUs">About Us</a>
+        </div>
+
+        <!-- Right: Sign Up and Login Buttons -->
+        <div class="navbar-right">
+
+            <a href="/logout" class="btn btn-secondary">Log Out</a>
+        </div>
+    </nav>
+</body>
+
+</html>

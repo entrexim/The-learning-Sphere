@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resend Verification</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Resend Verification Email</h1>
+        <form method="POST" action="/resend-verification" class="auth-form">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn">Resend Verification Email</button>
+        </form>
+        {{#if error}}
+            {{#if (eq error "Verification email resent! Please check your email.")}}
+                <p class="success">{{error}}</p>
+            {{else}}
+                <p class="error">{{error}}</p>
+            {{/if}}
+        {{/if}}
+        <p>Back to <a href="/login">Login</a></p>
+    </div>
+</body>
+</html>

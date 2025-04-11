@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | The Learning Sphere</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #666666;
+      --accent: #000000;
+      --border: #e0e0e0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .wrapper {
+      max-width: 750px;
+      margin: 60px auto;
+      padding: 40px;
+      background-color: #f9f9f9;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: var(--muted);
+    }
+
+    .contact-details {
+      margin-top: 30px;
+    }
+
+    .detail {
+      margin-bottom: 16px;
+      font-size: 17px;
+    }
+
+    .label {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .value {
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Contact Us</h1>
+    <p>If you have any questions, feedback, or collaboration inquiries — feel free to reach out. We're here to help.</p>
+
+    <div class="contact-details">
+      <div class="detail">
+        <span class="label">Email:</span>
+        <span class="value">support@learningsphere.in</span>
+      </div>
+      <div class="detail">
+        <span class="label">Phone:</span>
+        <span class="value">will be available soon</span>
+      </div>
+      <div class="detail">
+        <span class="label">Office Hours:</span>
+        <span class="value">24/7 Available for you</span>
+      </div>
+      <div class="detail">
+        <span class="label">Address:</span>
+        <span class="value">Available only in Online mode</span>
+      </div>
+    </div>
+
+    <footer>
+      &copy; {{year}} The Learning Sphere. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>

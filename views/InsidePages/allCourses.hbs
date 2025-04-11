@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            margin-top: 50px;
+            padding: 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 320px; /* Fixed square-like size */
+            height: 420px; /* Slightly taller */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 40%; /* 40% of card height */
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .description-box {
+            padding: 20px;
+            padding-top: 35px;
+            background-color: #2a2a2a;
+            border-radius: 0 0 10px 10px;
+            height: 60%; /* 60% of card height */
+        }
+        .teacher {
+            position: absolute;
+            top: 110px; /* Adjusted for new layout */
+            right: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            border-radius: 50%;
+            padding: 0px;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .teacher img {
+            width: 100px; /* Increased size */
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        h1 {
+            margin-top: 150px;
+            text-decoration: overline;
+            text-align: center;
+            color: #fff;
+            font-size: 2.2em;
+            letter-spacing: 1.5px;
+        }
+
+        h2 {
+            color: #ccc;
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #fff;
+            font-size: 1.3em;
+            margin: 15px 0 10px 0;
+        }
+
+        p {
+            color: #ddd;
+            font-size: 1em;
+            margin: 0 0 15px 0;
+        }
+
+        .explore-button {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    {{> navbar}}
+
+    <h1>LETS MASTER YOUR FAVOURITE SKILL</h1>
+    <h2>Press ctrl + F to find any Course</h2>
+
+    <div class="grid-container">
+        {{#each courses}}
+        <div class="card">
+            <img src="{{this.course_image}}" alt="Course Image" class="course-image">
+            <div class="teacher">
+                <img src="{{this.teacher_image}}" alt="Teacher">
+            </div>
+            <div class="description-box">
+                <h3>{{this.course_title}}</h3>
+                <p>{{this.course_description}}</p>
+                <a href="/course/{{this.id}}" class="explore-button">Explore</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</body>
+</html>

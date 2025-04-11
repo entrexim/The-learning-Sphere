@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The learning sphere</title>
+    <!-- Google Fonts for Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            position: relative;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+          }
+            .posterM{
+                border: 1px solid white;
+            }
+
+            .poster {
+                
+                margin-left: 150px;
+                display: block;
+                margin: 30px auto;
+                /* This centers the image horizontally */
+                border-radius: 15px;
+                z-index: 1;
+                max-width: 100%;
+            }
+
+        /* Background shapes container */
+        .background-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Flying shapes */
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        .shape1 {
+            width: 50px;
+            height: 50px;
+            top: 10%;
+            left: 20%;
+            animation-duration: 20s;
+        }
+
+        .shape2 {
+            width: 30px;
+            height: 30px;
+            top: 50%;
+            left: 70%;
+            animation-duration: 25s;
+        }
+
+        .shape3 {
+            width: 70px;
+            height: 70px;
+            top: 80%;
+            left: 40%;
+            animation-duration: 18s;
+        }
+
+        .shape4 {
+            width: 40px;
+            height: 40px;
+            top: 30%;
+            left: 90%;
+            animation-duration: 22s;
+        }
+
+        .shape5 {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            left: 50%;
+            animation-duration: 19s;
+        }
+
+        .shape6 {
+            width: 20px;
+            height: 20px;
+            top: 70%;
+            left: 10%;
+            animation-duration: 23s;
+        }
+
+        .shape7 {
+            width: 80px;
+            height: 80px;
+            top: 40%;
+            left: 80%;
+            animation-duration: 17s;
+        }
+
+        .shape8 {
+            width: 35px;
+            height: 35px;
+            top: 60%;
+            left: 30%;
+            animation-duration: 21s;
+        }
+
+        .shape9 {
+            width: 45px;
+            height: 45px;
+            top: 15%;
+            left: 60%;
+            animation-duration: 24s;
+        }
+
+        .shape10 {
+            width: 55px;
+            height: 55px;
+            top: 85%;
+            left: 85%;
+            animation-duration: 20s;
+        }
+
+        /* Animation for flying shapes */
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(100vw, 100vh);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Main container */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header styles */
+        .header {
+            height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            width: 120px;
+            height: auto;
+        }
+
+        .company-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-right .links {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Button styles */
+        .btn {
+            text-decoration: none;
+            padding: 10px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #e6e6e6;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            transform: scale(1.05);
+        }
+
+        /* Middle section */
+        .middle-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin: 50px 0;
+            min-height: 500px;
+        }
+
+        .left-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .left-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            opacity: 0.8;
+        }
+
+        .company-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Card styles */
+        .card {
+            background: linear-gradient(145deg, #2c2c2c, #1f1f1f);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #b3b3b3;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #2c2c2c;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            font-size: 0.9rem;
+            color: #b3b3b3;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #e6e6e6;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .middle-section {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .left-image,
+            .company-info {
+                flex: none;
+                width: 100%;
+            }
+
+            .company-info {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .company-name {
+                font-size: 2rem;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-right .links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .company-name {
+                font-size: 1.5rem;
+            }
+
+            .logo img {
+                width: 50px;
+            }
+
+            .btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+
+            .card {
+                padding: 20px;
+          
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background with flying shapes -->
+
+
+    <!-- Main container -->
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="logoW.png" alt="Logo">
+                </div>
+                <h1 class="company-name">THE LEARNING SPHERE</h1>
+            </div>
+            <div class="header-right">
+                <div class="links">
+                    <a href="/signup" class="btn btn-primary">Sign Up</a>
+                    <a href="/login" class="btn btn-secondary">Login</a>
+                </div>
+            </div>
+        </header>
+        <div class="posterM">
+            <img class="poster" src="F1PosterM.png" alt="">
+        </div>
+
+        
+
+
+        <!-- Middle Section -->
+        <div class="middle-section">
+
+            <!-- Left Image -->
+            <div class="left-image">
+                <img src="Flowchart2.png" alt="Black Image">
+            </div>
+
+            <!-- Company Info -->
+            <div class="company-info">
+                <div class="card">
+                    <h3>What is "THE LEARNING SPHERE"</h3>
+                    <p>"Forget boring teachers! 📢 With "THE LEARNING SPHERE", you learn from people your age—because
+                        only they truly get your struggles! 🔥 Master skills 100% guaranteed, in a way that actually
+                        makes sense! 🚀"</p>
+                </div>
+                <div class="card">
+                    <h3>3 level Model</h3>
+                    <p>"The 3-level model in your learning platform divides students based on performance after course
+                        completion. Above-average students move to advanced batches, while below-average students get
+                        extra support in separate batches. This cycle repeats for up to three levels to ensure complete
+                        skill mastery. 🚀"</p>
+                </div>
+                <div class="card">
+                    <h3>45+ Teachers</h3>
+                    <p>Join a team with great teachers that values creativity, collaboration, and growth. At THE
+                        LEARNING SPHERE, you’ll work on impactful projects, enjoy a supportive culture, and have
+                        opportunities to advance your career.</p>
+                </div>
+                <div class="card">
+                    <h3>30+ courses</h3>
+                    <p>"Master real-world skills with our structured courses, taught by peers who truly understand your
+                        challenges! 🚀 Guaranteed learning with step-by-step guidance and adaptive mentorship! 🔥"</p>
+                </div>
+                <div class="card">
+                    <h3>Practical Approach</h3>
+                    <p>"No boring theory—just 100% hands-on learning! 🚀 Master every skill through real-world projects
+                        and practical experience! 🔥"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 THE LEARNING SPHERE. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/contact">Contact</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

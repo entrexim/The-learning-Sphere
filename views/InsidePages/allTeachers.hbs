@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Black background for the body */
+            color: #fff; /* White text for contrast */
+            margin: 0;
+            padding: 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .card {
+            background-color: #1a1a1a; /* Dark gray for card background */
+            border: 1px solid #333; /* Subtle gray border */
+            border-radius: 15px; /* Slightly larger border-radius for a softer look */
+            box-shadow: 2px 2px 15px rgba(255, 255, 255, 0.1); /* Light shadow for depth */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease; /* Smooth hover effect */
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* Slight lift on hover for interactivity */
+        }
+
+        .teacher-image {
+            width: 100%;
+            height: 250px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensure the image fits well */
+            border-radius: 15px 15px 0 0; /* Rounded top corners */
+            filter: grayscale(100%); /* Black-and-white filter for the image */
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%); /* Creative bottom edge shape */
+        }
+
+        .description-box {
+            padding: 20px; /* Adjusted padding for balance */
+            background-color: #2a2a2a; /* Slightly lighter gray for description box */
+            border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+            position: relative;
+        }
+
+        h1 {
+            margin-top: 150px;
+            text-decoration: overline;
+            text-align: center;
+            color: #fff; /* White text for the heading */
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            color: #ccc; /* Light gray for the subtitle */
+            font-size: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            color: #fff; /* White text for teacher title */
+            font-size: 1.3em; /* Slightly larger for emphasis */
+            margin: 10px 0; /* Adjusted margin for better spacing */
+            font-weight: bold;
+        }
+
+        p {
+            color: #ddd; /* Slightly lighter gray for description text */
+            font-size: 0.9em;
+            margin: 0;
+            line-height: 1.5; /* Better readability */
+        }
+
+        /* Creative accent line */
+        .description-box::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: #fff; /* White accent line */
+        }
+    </style>
+</head>
+
+<body>
+    {{> navbar}}  <!-- Keeping the navbar as per the original code -->
+
+    <h1>FIND YOUR FAVOURITE PEER EXPERT</h1>
+    <h2>Press ctrl + F to find any Teacher</h2>
+
+    <div class="grid-container">
+        {{#each teachers}}
+        <div class="card">
+            <img src="{{this.teacher_image}}" alt="Teacher Image" class="teacher-image">
+            <div class="description-box">
+                <h3>{{this.teacher_title}}</h3>
+                <p>{{this.teacher_description}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</body>
+</html>

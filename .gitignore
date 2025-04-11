@@ -1,0 +1,24 @@
+# Node
+node_modules/
+.env
+npm-debug.log
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+
+# Editor-specific
+.vscode/
+.idea/
+*.swp
+
+# Optional if using Firebase
+.firebase/
